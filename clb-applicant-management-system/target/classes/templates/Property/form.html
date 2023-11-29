@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Property Form</title>
+</head>
+<body>
+
+ <h1>Property Form</h1>
+    <form th:action="@{/properties/save}" th:object="${property}" method="post">
+        <label>PropertyId: <input type="text" th:field="*{propertyId}" /></label><br/>
+        <label>Location: <input type="text" th:field="*{location}" /></label><br/>
+        <label>PropertyType: <input type="text" th:field="*{propertyType}" /></label><br/>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/properties}">Back to List</a>
+
+</body>
+</html>

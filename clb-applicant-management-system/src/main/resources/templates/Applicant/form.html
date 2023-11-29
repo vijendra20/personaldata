@@ -1,0 +1,17 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Applicant Form</title>
+</head>
+<body>
+    <h1>Applicant Form</h1>
+    <form th:action="@{/applicants/save}" th:object="${applicant}" method="post">
+        <label>First Name: <input type="text" th:field="*{firstName}" /></label><br/>
+        <label>Last Name: <input type="text" th:field="*{lastName}" /></label><br/>
+        <label>Email: <input type="text" th:field="*{email}" /></label><br/>
+        <button type="submit">Save</button>
+    </form>
+    <a th:href="@{/applicants}">Back to List</a>
+</body>
+</html>

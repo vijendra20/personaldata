@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Properties List</title>
+</head>
+<body>
+    
+    <h1>Properties List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>              
+                <th>Location</th>
+                <th>PropertyType</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="property : ${properties}">
+                <td th:text="${property.id}"></td>
+                <td th:text="${property.location}"></td>
+                <td th:text="${property.propertyType}"></td>
+                <td>
+                    <a th:href="@{'/properties/edit/' + ${property.id}}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a th:href="@{/properties/form}">Add New Property</a>
+</body>
+</html>

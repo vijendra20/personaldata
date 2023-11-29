@@ -1,0 +1,40 @@
+<!-- list.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Applicants List</title>
+</head>
+<body>
+    <h1>Applicants List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+                
+                
+            </tr>
+           
+        </thead>
+        
+        <tbody>
+            <tr th:each="applicant : ${applicants}">
+                <td th:text="${applicant.id}"></td>
+                <td th:text="${applicant.firstName}"></td>
+                <td th:text="${applicant.lastName}"></td>
+                <td th:text="${applicant.email}"></td>
+                <td>
+                    <a th:href="@{/applicants/edit/{id}(id=${applicant.id})}">Edit</a>
+                    <a th:href="@{/applicants/delete/{id}(id=${applicant.id})}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a th:href="@{/applicants/form}">Add New Applicant</a>
+</body>
+</html>
