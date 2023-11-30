@@ -1,0 +1,27 @@
+<!-- src/main/resources/templates/bidForm.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Bid</title>
+</head>
+<body>
+    <h2>Create Bid</h2>
+    <form action="/bids/create" method="post" th:object="${bid}">
+        <label for="applicant">Applicant:</label>
+        <select id="applicant" name="applicant.id">
+            <option th:each="applicant : ${applicants}" th:value="${applicant.id}" th:text="${applicant.name}"></option>
+        </select><br>
+
+        <label for="property">Property:</label>
+        <select id="property" name="property.id">
+            <option th:each="property : ${properties}" th:value="${property.id}" th:text="${property.propertyName}"></option>
+        </select><br>
+
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amount" required><br>
+
+        <button type="submit">Submit Bid</button>
+    </form>
+</body>
+</html>

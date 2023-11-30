@@ -17,15 +17,15 @@ import com.crudoperations.service.PropertyService;
 @Controller
 @RequestMapping("/properties")
 public class PropertyController {
-	
-	@Autowired
+
+    @Autowired
     private PropertyService propertyService;
 
     @GetMapping()
     public String listProperties(Model model) {
         List<Property> properties = propertyService.getAllProperties();
         model.addAttribute("properties", properties);
-        return "properties/list";
+        return "property/list";
     }
 
     @GetMapping("/form")
@@ -36,7 +36,7 @@ public class PropertyController {
 
     @PostMapping("/save")
     public String saveProperty(@ModelAttribute Property property) {
-    	propertyService.saveProperty(property);
+        propertyService.saveProperty(property);
         return "redirect:/properties";
     }
 
@@ -46,8 +46,23 @@ public class PropertyController {
         model.addAttribute("property", property);
         return "property/form";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteApplicant(@PathVariable Long id) {
+    	propertyService.deleteProperty(id);
+        return "redirect:/properties";
+    }
 
-
-	
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Properties List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property List</title>
 </head>
 <body>
-    
-    <h1>Properties List</h1>
-    <table>
+
+    <h2>Property List</h2>
+
+    <table border="1">
         <thead>
             <tr>
-                <th>ID</th>              
+                <th>ID</th>
                 <th>Location</th>
-                <th>PropertyType</th>
+                <th>Property Type</th>
                 <th>Actions</th>
             </tr>
         </thead>
-        
         <tbody>
             <tr th:each="property : ${properties}">
-                <td th:text="${property.id}"></td>
+                <td th:text="${property.propertyId}"></td>
                 <td th:text="${property.location}"></td>
                 <td th:text="${property.propertyType}"></td>
                 <td>
-                    <a th:href="@{'/properties/edit/' + ${property.id}}">Edit</a>
+                    <!-- Edit link -->
+                    <a th:href="@{'/properties/edit/' + ${property.propertyId}}">Edit</a>
+                    
+                    <!-- Delete link (replace '/properties/delete/' with the actual delete endpoint) -->
+                    <a th:href="@{'/properties/delete/' + ${property.propertyId}}">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
-    <br>
     <a th:href="@{/properties/form}">Add New Property</a>
 </body>
 </html>

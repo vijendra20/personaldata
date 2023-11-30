@@ -10,30 +10,27 @@ import com.crudoperations.repository.PropertyRepository;
 @Service
 public class PropertyServiceImpl implements PropertyService {
 	@Autowired
-	// private ApplicantRepository applicantRepository;
-	private PropertyRepository propertyRepository;
+    private PropertyRepository propertyRepository;
 
-	
-	@Override
-	public List<Property> getAllProperties() {
-		// TODO Auto-generated method stub
-		return propertyRepository.findAll();
+    @Override
+    public List<Property> getAllProperties() {
+        return propertyRepository.findAll();
+    }
 
-			}
+    @Override
+    public Property getPropertyById(Long id) {
+        return propertyRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void saveProperty(Property property) {
+        propertyRepository.save(property);
+    }
+        
 
 	@Override
-	public Property getPropertyById(Long id) {
-		// TODO Auto-generated method stub
-		return propertyRepository.findById(id).orElse(null);
-	}
-	      
-	    
-	@Override
-	public void saveProperty(Property property) {
-		// TODO Auto-generated method stub
-		propertyRepository.save(property);
+	public void deleteProperty(Long id) {
+		propertyRepository.deleteById(id);
 		
 	}
-	     }
-	
-	
+}

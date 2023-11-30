@@ -8,21 +8,10 @@ import org.springframework.stereotype.Service;
 import com.crudoperations.model.Applicant;
 import com.crudoperations.repository.ApplicantRepository;
 
-//ApplicantServiceImpl.java
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-
-//ApplicantServiceImpl.java
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
-public class ApplicantServiceImpl implements ApplicantService {
 
+public class ApplicantServiceImpl implements ApplicantService {
  @Autowired
  private ApplicantRepository applicantRepository;
 

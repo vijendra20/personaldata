@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Property Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Form</title>
 </head>
 <body>
 
- <h1>Property Form</h1>
-    <form th:action="@{/properties/save}" th:object="${property}" method="post">
-        <label>PropertyId: <input type="text" th:field="*{propertyId}" /></label><br/>
-        <label>Location: <input type="text" th:field="*{location}" /></label><br/>
-        <label>PropertyType: <input type="text" th:field="*{propertyType}" /></label><br/>
-        <button type="submit">Save</button>
-    </form>
-    <a th:href="@{/properties}">Back to List</a>
+    <h2>Property Form</h2>
 
+    <form th:action="@{/properties/save}" th:object="${property}" method="post">
+        <label for="location">Location:</label>
+        <input type="text" id="location" th:field="*{location}" required><br>
+
+        <label for="propertyType">Property Type:</label>
+        <input type="text" id="propertyType" th:field="*{propertyType}" required><br>
+
+        <button type="submit">Save Property</button>
+    </form>
+<a th:href="@{/properties}">Back to List</a>
 </body>
 </html>
